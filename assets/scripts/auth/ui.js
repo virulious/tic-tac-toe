@@ -117,6 +117,11 @@ const keepBox = function (error) {
 
 const refresh = function (data) {
   /*
+  for (let child = $('row').firstChild; child !== null; child = child.nextSibling) {
+    child.text(null)
+    child.removeClass()
+    child.addClass('col-4 box')
+  }
   console.log('Refresh ran')
   $('row'.child).text(null)
   $('row'.child).removeClass()
@@ -131,7 +136,6 @@ const refresh = function (data) {
   $('#6').text(null)
   $('#7').text(null)
   $('#8').text(null)
-  $('#9').text(null)
   $('#0').removeClass()
   $('#1').removeClass()
   $('#2').removeClass()
@@ -141,7 +145,6 @@ const refresh = function (data) {
   $('#6').removeClass()
   $('#7').removeClass()
   $('#8').removeClass()
-  $('#9').removeClass()
   $('#0').addClass('col-4 box')
   $('#1').addClass('col-4 box')
   $('#2').addClass('col-4 box')
@@ -151,7 +154,8 @@ const refresh = function (data) {
   $('#6').addClass('col-4 box')
   $('#7').addClass('col-4 box')
   $('#8').addClass('col-4 box')
-  $('#9').addClass('col-4 box')
+  /*
+  */
   turn = 0
 }
 

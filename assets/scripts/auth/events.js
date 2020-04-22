@@ -6,6 +6,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 // UI and API
 const api = require('./api')
 const ui = require('./ui')
+// const gameBoard = require('./gameBoard')
 
 const onSignUp = function (event) {
   event.preventDefault()

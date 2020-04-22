@@ -1,3 +1,4 @@
+/*
 // The game logic
 
 // An array for each space
@@ -18,3 +19,4 @@ const coord = [
 const playGame = function () {
 
 }
+*/
