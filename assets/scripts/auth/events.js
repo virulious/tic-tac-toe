@@ -57,6 +57,12 @@ const onPlayMove = function (event) {
     ui.keepBox()
   }
 }
+
+// Refresh the game board
+const onRefresh = function (event) {
+  event.preventDefault()
+  ui.refresh()
+}
 /*
   if (turn === 0) {
     if ($(event.target).hasClass('box')) {
@@ -134,5 +140,6 @@ module.exports = {
   onSignIn,
   onChangePassword,
   onSignOut,
-  onPlayMove
+  onPlayMove,
+  onRefresh
 }

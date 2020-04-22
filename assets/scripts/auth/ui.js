@@ -115,6 +115,46 @@ const keepBox = function (error) {
   }
 }
 
+const refresh = function (data) {
+  /*
+  console.log('Refresh ran')
+  $('row'.child).text(null)
+  $('row'.child).removeClass()
+  $('row'.child).addClass('col-4 box')
+  */
+  $('#0').text(null)
+  $('#1').text(null)
+  $('#2').text(null)
+  $('#3').text(null)
+  $('#4').text(null)
+  $('#5').text(null)
+  $('#6').text(null)
+  $('#7').text(null)
+  $('#8').text(null)
+  $('#9').text(null)
+  $('#0').removeClass()
+  $('#1').removeClass()
+  $('#2').removeClass()
+  $('#3').removeClass()
+  $('#4').removeClass()
+  $('#5').removeClass()
+  $('#6').removeClass()
+  $('#7').removeClass()
+  $('#8').removeClass()
+  $('#9').removeClass()
+  $('#0').addClass('col-4 box')
+  $('#1').addClass('col-4 box')
+  $('#2').addClass('col-4 box')
+  $('#3').addClass('col-4 box')
+  $('#4').addClass('col-4 box')
+  $('#5').addClass('col-4 box')
+  $('#6').addClass('col-4 box')
+  $('#7').addClass('col-4 box')
+  $('#8').addClass('col-4 box')
+  $('#9').addClass('col-4 box')
+  turn = 0
+}
+
 module.exports = {
   signUpSuccess,
   signInSuccess,
@@ -125,5 +165,6 @@ module.exports = {
   signOutFailure,
   changePasswordFailure,
   changeBox,
-  keepBox
+  keepBox,
+  refresh
 }
