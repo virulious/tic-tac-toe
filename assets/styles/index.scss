@@ -1,5 +1,13 @@
 @import '~bootstrap/scss/bootstrap';
 
+$alt-color: $cyan;
+$body-bg-color: $gray-200;
+$font-color: $light;
+
+body {
+  background-color: $body-bg-color;
+}
+
 .success {
   color: green;
 }
@@ -10,4 +18,53 @@
 
 #authenticated {
   display: none;
+}
+
+#change-password {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sign-out{
+  align-self: flex-start;
+  width: 50%;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.row {
+  display: flex;
+  width: 50%;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: white;
+  border: 1px solid black;
+  height: 80px;
+}
+
+.x {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  height: 80px;
+}
+
+.o {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid black;
+  height: 80px;
 }
