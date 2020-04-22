@@ -12,6 +12,42 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>A Tic-Tac-Toe game</h1>
+      <div id="unauthenticated">
+        <form id="sign-up">
+          <input required type="text" placeholder="User Email" name="credentials[email]">
+          <input required type="password" placeholder="User Password" name="credentials[password]">
+          <input required type="password" placeholder="User Password" name="credentials[password_confirmation]">
+          <button type="submit">Sign Up</button>
+        </form>
+        <form id="sign-in">
+          <input required type="text" placeholder="User Email" name="credentials[email]">
+          <input required type="password" placeholder="User Password" name="credentials[password]">
+          <button type="submit">Sign In</button>
+        </form>
+      </div>
+      <div id="authenticated">
+        <form id="change-password">
+          <input required type="password" name="passwords[old]" placeholder="Old Password">
+          <input required type="password" name="passwords[new]" placeholder="New Password">
+          <button type="submit">Change Password</button>
+        </form>
+        <form id="sign-out">
+          <button type="submit">Sign Out</button>
+        </form>
+        <div class="containter">
+          <div class="row">
+            <div class="col-4 box">1</div>
+            <div class="col-4 box">2</div>
+            <div class="col-4 box">3</div>
+            <div class="col-4 box">4</div>
+            <div class="col-4 box">5</div>
+            <div class="col-4 box">6</div>
+            <div class="col-4 box">7</div>
+            <div class="col-4 box">8</div>
+            <div class="col-4 box">9</div>
+          </div>
+        </div>
+      </div>
     </body>
 </html>
