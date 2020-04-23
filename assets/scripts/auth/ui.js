@@ -1,8 +1,71 @@
 'use strict'
 
 const store = require('../store')
+
 let turn = 0
 
+// The game logic
+
+// The game board as an array
+// An element for each space
+const gameArr = ['', '', '', '', '', '', '', '', '']
+
+// functions for either X or O winning the game
+const xWins = function () {
+  $('#message').text('X wins!')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+}
+
+const oWins = function () {
+  $('#message').text('O wins!')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+}
+
+// Function to check if X or O won the game
+const checkWin = function () {
+  if (gameArr[0] === 'x' && gameArr[1] === 'x' && gameArr[2] === 'x') {
+    xWins()
+  } else if (gameArr[3] === 'x' && gameArr[4] === 'x' && gameArr[5] === 'x') {
+    xWins()
+  } else if (gameArr[6] === 'x' && gameArr[7] === 'x' && gameArr[8] === 'x') {
+    xWins()
+  } else if (gameArr[0] === 'x' && gameArr[3] === 'x' && gameArr[6] === 'x') {
+    xWins()
+  } else if (gameArr[1] === 'x' && gameArr[4] === 'x' && gameArr[7] === 'x') {
+    xWins()
+  } else if (gameArr[2] === 'x' && gameArr[5] === 'x' && gameArr[8] === 'x') {
+    xWins()
+  } else if (gameArr[0] === 'x' && gameArr[4] === 'x' && gameArr[8] === 'x') {
+    xWins()
+  } else if (gameArr[2] === 'x' && gameArr[4] === 'x' && gameArr[6] === 'x') {
+    xWins()
+  } else if (gameArr[0] === 'o' && gameArr[1] === 'o' && gameArr[2] === 'o') {
+    oWins()
+  } else if (gameArr[3] === 'o' && gameArr[4] === 'o' && gameArr[5] === 'o') {
+    oWins()
+  } else if (gameArr[6] === 'o' && gameArr[7] === 'o' && gameArr[8] === 'o') {
+    oWins()
+  } else if (gameArr[0] === 'o' && gameArr[3] === 'o' && gameArr[6] === 'o') {
+    oWins()
+  } else if (gameArr[1] === 'o' && gameArr[4] === 'o' && gameArr[7] === 'o') {
+    oWins()
+  } else if (gameArr[2] === 'o' && gameArr[5] === 'o' && gameArr[8] === 'o') {
+    oWins()
+  } else if (gameArr[0] === 'o' && gameArr[4] === 'o' && gameArr[8] === 'o') {
+    oWins()
+  } else if (gameArr[2] === 'o' && gameArr[4] === 'o' && gameArr[6] === 'o') {
+    oWins()
+  } else {
+    // If neither X or O won this should display
+    $('#message').text('Next turn!')
+    $('#message').removeClass()
+    $('#message').addClass('success')
+  }
+}
+
+// Sign the user up for a new account
 const signUpSuccess = function (data) {
   $('#message').text('Sign up successfull')
   $('#message').removeClass()
@@ -21,15 +84,7 @@ const signUpFailure = function (error) {
   $('form').trigger('reset')
 }
 
-const signInFailure = function (error) {
-  $('#message').text('Sign in failed!')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.log(`signInFailure ran. Error is:`, error)
-
-  $('form').trigger('reset')
-}
-
+// Sign in an existing account
 const signInSuccess = function (data) {
   $('#message').text('Sign in successfull')
   $('#message').removeClass()
@@ -44,6 +99,16 @@ const signInSuccess = function (data) {
   $('form').trigger('reset')
 }
 
+const signInFailure = function (error) {
+  $('#message').text('Sign in failed!')
+  $('#message').removeClass()
+  $('#message').addClass('failure')
+  console.log(`signInFailure ran. Error is:`, error)
+
+  $('form').trigger('reset')
+}
+
+// Allows user to change their password
 const changePasswordSuccess = function (data) {
   $('#message').text('Changed password successfully!')
   $('#message').removeClass()
@@ -62,6 +127,7 @@ const changePasswordFailure = function (error) {
   $('form').trigger('reset')
 }
 
+// Sign the user out and change user to null
 const signOutSuccess = function (data) {
   $('#message').text('Sign out successfull')
   $('#message').removeClass()
@@ -84,30 +150,38 @@ const signOutFailure = function (error) {
 }
 
 // Box click ui
+// Change the box to either X or O based on who's turn it is
+// Check for win condition
+// Change turns
 const changeBox = function (data) {
-  if (turn === 0) {
+  if ($('#message').text() === 'X wins!' || $('#message').text() === 'O wins!') {
+    console.log('Game is over')
+  } else if (turn === 0) {
     if ($(event.target).hasClass('box')) {
       $(event.target).text('X')
       $(event.target).removeClass()
       $(event.target).addClass('col-4 x')
-      $('#message').text('Next move')
-      $('#message').removeClass()
-      $('#message').addClass('success')
+      gameArr[event.target.id] = 'x'
+      console.log(gameArr)
+      checkWin()
       turn = 1
     }
   } else if (turn === 1) {
     $(event.target).text('O')
     $(event.target).removeClass()
     $(event.target).addClass('col-4 o')
-    $('#message').text('Next move')
-    $('#message').removeClass()
-    $('#message').addClass('success')
+    gameArr[event.target.id] = 'o'
+    console.log(gameArr)
+    checkWin()
     turn = 0
   }
 }
 
+// Keep the X or O in the box when already populated
 const keepBox = function (error) {
-  if ($(event.target).hasClass('x') || $(event.target).hasClass('o')) {
+  if ($('#message').text() === 'X wins!' || $('#message').text() === 'O wins!') {
+    console.log('Game is over')
+  } else if ($(event.target).hasClass('x') || $(event.target).hasClass('o')) {
     $('#message').text('Box already taken')
     $('#message').removeClass()
     $('#message').addClass('failure')
@@ -115,7 +189,19 @@ const keepBox = function (error) {
   }
 }
 
+// Refresh the game board for a new game
 const refresh = function (data) {
+  $('.col-4').text('')
+  $('.col-4').removeClass('x')
+  $('.col-4').removeClass('o')
+  $('.col-4').addClass('box')
+  $('#message').text('New Game!')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  for (let i = 0; i < gameArr.length; i++) {
+    gameArr[i] = ''
+  }
+  turn = 0
   /*
   for (let child = $('row').firstChild; child !== null; child = child.nextSibling) {
     child.text(null)
@@ -127,6 +213,7 @@ const refresh = function (data) {
   $('row'.child).removeClass()
   $('row'.child).addClass('col-4 box')
   */
+  /*
   $('#0').text(null)
   $('#1').text(null)
   $('#2').text(null)
@@ -154,9 +241,7 @@ const refresh = function (data) {
   $('#6').addClass('col-4 box')
   $('#7').addClass('col-4 box')
   $('#8').addClass('col-4 box')
-  /*
   */
-  turn = 0
 }
 
 module.exports = {

@@ -18,6 +18,7 @@ $(() => {
   $('#sign-out').on('submit', authEvents.onSignOut)
   // Event listener for box clicks:
   $('.box').on('click', authEvents.onPlayMove)
+  // Event listener for clearing the game board
   $('#refresh').on('submit', authEvents.onRefresh)
   /*
   $('#ul').on('click', authEvents.onClickUl)
