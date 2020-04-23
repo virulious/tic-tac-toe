@@ -14,6 +14,7 @@
     <body>
       <h1>A Tic-Tac-Toe game</h1>
       <div id="message"></div>
+      <div id="played"></div>
       <div id="unauthenticated">
         <form id="sign-up">
           <input required type="text" placeholder="User Email" name="credentials[email]">
@@ -36,10 +37,10 @@
         <form id="sign-out">
           <button type="submit">Sign Out</button>
         </form>
-        <div class="containter">
-          <form id="refresh">
-            <button type="submit">Refresh gameboard</button>
-          </form>
+        <form id="refresh">
+          <button type="submit">Start a new game!</button>
+        </form>
+        <div class="container">
           <div class="row">
             <div class="col-4 box" id="0"></div>
             <div class="col-4 box" id="1"></div>

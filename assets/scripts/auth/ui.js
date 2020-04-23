@@ -3,6 +3,7 @@
 const store = require('../store')
 
 let turn = 0
+let gamesPlayed = 0
 
 // The game logic
 
@@ -15,17 +16,38 @@ const xWins = function () {
   $('#message').text('X wins!')
   $('#message').removeClass()
   $('#message').addClass('success')
+  gamesPlayed += 1
 }
 
 const oWins = function () {
   $('#message').text('O wins!')
   $('#message').removeClass()
   $('#message').addClass('success')
+  gamesPlayed += 1
+}
+
+const drawWins = function () {
+  $('#message').text('A draw!')
+  $('#message').removeClass()
+  $('#message').addClass('success')
+  gamesPlayed += 1
+}
+
+const isDraw = function () {
+  let draw = 0
+  for (let i = 0; i < gameArr.length; i++) {
+    if (gameArr[i] !== '') {
+      draw += 1
+    }
+  }
+  return draw
 }
 
 // Function to check if X or O won the game
 const checkWin = function () {
-  if (gameArr[0] === 'x' && gameArr[1] === 'x' && gameArr[2] === 'x') {
+  if (isDraw() === 9) {
+    drawWins()
+  } else if (gameArr[0] === 'x' && gameArr[1] === 'x' && gameArr[2] === 'x') {
     xWins()
   } else if (gameArr[3] === 'x' && gameArr[4] === 'x' && gameArr[5] === 'x') {
     xWins()
@@ -149,12 +171,22 @@ const signOutFailure = function (error) {
   console.error('signOutFailure ran. Error is :', error)
 }
 
+// Store game data?
+const gameStartSuccess = function (data) {
+  console.log('Game created')
+  store.user = data.user
+}
+
+const gameStartFailure = function (error) {
+  console.log(`Game creation failed. Error is:`, error)
+}
+
 // Box click ui
 // Change the box to either X or O based on who's turn it is
 // Check for win condition
 // Change turns
 const changeBox = function (data) {
-  if ($('#message').text() === 'X wins!' || $('#message').text() === 'O wins!') {
+  if ($('#message').text() === 'X wins!' || $('#message').text() === 'O wins!' || $('#message').text() === 'A draw!') {
     console.log('Game is over')
   } else if (turn === 0) {
     if ($(event.target).hasClass('box')) {
@@ -191,6 +223,8 @@ const keepBox = function (error) {
 
 // Refresh the game board for a new game
 const refresh = function (data) {
+  $('#played').text(`You played ${gamesPlayed} games!`)
+  $('.container').show()
   $('.col-4').text('')
   $('.col-4').removeClass('x')
   $('.col-4').removeClass('o')
@@ -255,5 +289,7 @@ module.exports = {
   changePasswordFailure,
   changeBox,
   keepBox,
-  refresh
+  refresh,
+  gameStartSuccess,
+  gameStartFailure
 }

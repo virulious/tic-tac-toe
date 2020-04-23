@@ -64,6 +64,13 @@ const onRefresh = function (event) {
   event.preventDefault()
   ui.refresh()
 }
+
+const onGameStart = function (event) {
+  event.preventDefault()
+  api.gameStart()
+    .then(ui.gameStartSuccess)
+    .catch(ui.gameStartFailure)
+}
 /*
   if (turn === 0) {
     if ($(event.target).hasClass('box')) {
@@ -142,5 +149,6 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onPlayMove,
-  onRefresh
+  onRefresh,
+  onGameStart
 }

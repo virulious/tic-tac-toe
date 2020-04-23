@@ -16,6 +16,10 @@ body {
   color: red;
 }
 
+#played {
+  color: green;
+}
+
 #authenticated {
   display: none;
 }
@@ -31,7 +35,7 @@ body {
 }
 
 .container {
-  display: flex;
+  display: none;
   justify-content: flex-end;
 }
 
