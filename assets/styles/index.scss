@@ -3,73 +3,128 @@
 $alt-color: $cyan;
 $body-bg-color: $gray-200;
 $font-color: $light;
+$side-bar: rgba(30, 200, 120, .6);
+$success: #008000;
+$fail: #f00;
+$gameboard-fill: #fff;
+$gameboard-border: #000;
+$color-x: #f00;
+$color-o: #00f;
+$hover-no: rgba(0, 0, 0, .6);
+$hover-yes: rgba(30, 200, 120, .6);
 
 body {
   background-color: $body-bg-color;
 }
 
+main {
+  margin-left: 205px;
+}
+
 .success {
-  color: green;
+  color: $success;
 }
 
 .failure {
-  color: red;
+  color: $fail;
+}
+
+.message {
+  display: flex;
+  justify-content: flex-start;
 }
 
 #played {
-  color: green;
+  align-self: center;
+  color: $success;
 }
 
-#authenticated {
+#game-index {
+  padding-right: 20px;
+}
+
+#game-id {
+  padding-right: 20px;
+}
+
+.authenticated {
   display: none;
-}
-
-#change-password {
-  align-self: flex-start;
-  width: 50%;
-}
-
-#sign-out{
-  align-self: flex-start;
-  width: 50%;
 }
 
 .container {
+  align-content: center;
   display: none;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
-.row {
+.game-buttons {
+  align-content: flex-end;
   display: flex;
-  width: 50%;
+  justify-content: center;
+}
+
+.board {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  max-height: calc(100vmin - 75px);
+  max-width: calc(100vmin - 75px);
   padding-top: 10px;
 }
 
 .box {
-  display: flex;
-  justify-content: center;
   align-content: center;
-  background-color: white;
-  border: 1px solid black;
+  background-color: $gameboard-fill;
+  border: 1px solid $gameboard-border;
+  display: flex;
   height: 80px;
+  justify-content: center;
+
+  &:hover {
+    background-color: $hover-yes;
+  }
 }
 
 .x {
-  display: flex;
-  justify-content: center;
   align-content: center;
   align-items: center;
-  background-color: white;
-  border: 1px solid black;
+  background-color: $gameboard-fill;
+  border: 1px solid $gameboard-border;
+  color: $color-x;
+  display: flex;
   height: 80px;
+  justify-content: center;
+  user-select: none;
+
+  &:hover {
+    background-color: $hover-no;
+  }
 }
 
 .o {
-  display: flex;
-  justify-content: center;
   align-content: center;
   align-items: center;
-  background-color: white;
-  border: 1px solid black;
+  background-color: $gameboard-fill;
+  border: 1px solid $gameboard-border;
+  color: $color-o;
+  display: flex;
   height: 80px;
+  justify-content: center;
+  user-select: none;
+
+  &:hover {
+    background-color: $hover-no;
+  }
+}
+
+.side-bar {
+  background-color: $side-bar;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  justify-content: flex-start;
+  position: fixed;
+  width: 205px;
 }

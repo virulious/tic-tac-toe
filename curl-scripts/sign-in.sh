@@ -6,6 +6,7 @@ curl "https://tic-tac-toe-wdi.herokuapp.com/sign-in" \
   "credentials": {
     "email": "'"${EMAIL}"'",
     "password": "'"${PASSWORD}"'",
+    "token": "'"${TOKEN}"'"
   }
 }'
 

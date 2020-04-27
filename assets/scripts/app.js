@@ -20,6 +20,10 @@ $(() => {
   $('.box').on('click', authEvents.onPlayMove)
   // Event listener for clearing the game board
   $('#refresh').on('submit', authEvents.onRefresh)
+  // Event listener to get the game index
+  $('#game-index').on('submit', authEvents.onGameIndex)
+  // Event listener to get game by INDEX
+  $('#game-id').on('submit', authEvents.onGameID)
   /*
   $('#ul').on('click', authEvents.onClickUl)
   $('#um').on('click', authEvents.onClickUm)

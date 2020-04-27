@@ -4,9 +4,11 @@ curl "https://tic-tac-toe-wdi.herokuapp.com/games${ID}" \
 --header "Authorization: Token token=${TOKEN}" \
 --header "Content-Type: application/json" \
 --data '{
-  "game": {
-    "winner": "'"${WINNER}"'",
-    "gameboard": "'"${GAMEARRAY}"'"
+  "games": {
+    "cells": {
+      "index": "'"${INDEX}"'"
+      "value": "'"${VALUE}"'"
+    }
   }
 }'
 

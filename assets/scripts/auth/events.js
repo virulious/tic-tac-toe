@@ -25,7 +25,7 @@ const onSignIn = function (event) {
 
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
+  // console.log(formData)
   api.signIn(formData)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
@@ -63,13 +63,39 @@ const onPlayMove = function (event) {
 const onRefresh = function (event) {
   event.preventDefault()
   ui.refresh()
-}
-
-const onGameStart = function (event) {
-  event.preventDefault()
   api.gameStart()
     .then(ui.gameStartSuccess)
     .catch(ui.gameStartFailure)
+}
+/*
+const onGameStart = function (event) {
+  event.preventDefault()
+}
+*/
+
+const onGameIndex = function (event) {
+  event.preventDefault()
+  api.gameIndex()
+    .then(ui.gameIndexSuccess)
+    .catch(ui.gameIndexFailure)
+}
+
+const onGameID = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+
+  api.gameID(formData)
+    .then(ui.gameIDSuccess)
+    .catch(ui.gameIDFailure)
+}
+
+const onGameUpdate = function (event) {
+  event.preventDefault()
+  api.gameUpdate()
+    .then(ui.gameUpdateSuccess)
+    .catch(ui.gameUpdateFailure)
 }
 /*
   if (turn === 0) {
@@ -150,5 +176,7 @@ module.exports = {
   onSignOut,
   onPlayMove,
   onRefresh,
-  onGameStart
+  onGameUpdate,
+  onGameID,
+  onGameIndex
 }
