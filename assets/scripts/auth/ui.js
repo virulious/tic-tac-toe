@@ -168,13 +168,15 @@ const signOutSuccess = function (data) {
   $('.message').text('Sign out successfull')
   messageSuccess()
   // console.log(`signOutSuccess ran. Data is:`, data)
+  refresh()
+  $('.container').hide()
+  $('#games-display').hide()
 
   $('form').trigger('reset')
 
   $('.authenticated').hide()
   $('.unauthenticated').show()
 
-  refresh()
   store.user = null
 }
 
@@ -198,6 +200,7 @@ const gameStartFailure = function (error) {
 
 const gameIndexSuccess = function (data) {
   // console.log('Game index success')
+  $('#games-display').show()
   let gamesHtml = ''
   store.games = data.games
 
@@ -226,6 +229,7 @@ const gameIndexFailure = function (error) {
 }
 
 const gameIDSuccess = function (data) {
+  $('#game-id').show()
   let idGames = ''
   // console.log(data)
   // console.log(store)
