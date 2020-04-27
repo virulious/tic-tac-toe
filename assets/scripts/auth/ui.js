@@ -202,25 +202,30 @@ const gameIndexSuccess = function (data) {
   // console.log('Game index success')
   $('#games-display').show()
   let gamesHtml = ''
+  let gamesHtmldata = ''
+  let totalGames = 0
   store.games = data.games
 
+  store.games.forEach(function (game) {
+    const gamesSection = (`
+      <p>Game ID: ${game.id}</p>
+      `)
+    totalGames += 1
+    gamesHtml += gamesSection
+  })
+
   const gamesSection = (`
-      <p>Games played: ${gamesPlayed}</p>
+      <p>Total games played: ${totalGames}</p>
+      <p>Games played this session: ${gamesPlayed}</p>
       <p>X wins: ${winnerX}</p>
       <p>O wins: ${winnerO}</p>
       <p>Draws: ${winnerDraw}</p>
       <br>
       `)
-  gamesHtml += gamesSection
-
-  store.games.forEach(function (game) {
-    const gamesSection = (`
-        <p>Game ID: ${game.id}</p>
-        `)
-    gamesHtml += gamesSection
-  })
+  gamesHtmldata += gamesSection
 
   // After looping, put all HTML on page
+  $('#games-data').html(gamesHtmldata)
   $('#games-display').html(gamesHtml)
 }
 
@@ -337,7 +342,6 @@ const keepBox = function (error) {
 
 // Refresh the game board for a new game
 const refresh = function (data) {
-  $('#played').text(`You played ${gamesPlayed} games!`)
   $('.container').show()
   $('.col-4').text('')
   $('.col-4').removeClass('x')
