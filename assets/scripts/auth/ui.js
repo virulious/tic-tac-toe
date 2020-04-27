@@ -202,6 +202,7 @@ const gameStartFailure = function (error) {
 const gameIndexSuccess = function (data) {
   // console.log('Game index success')
   $('#games-display').show()
+  $('#games-data').show()
   let gamesHtml = ''
   let gamesHtmldata = ''
   let totalGames = 0
