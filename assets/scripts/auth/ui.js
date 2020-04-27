@@ -199,7 +199,7 @@ const gameIndexSuccess = function (data) {
   // console.log('Game index success')
   let gamesHtml = ''
   store.games = data.games
-/*
+
   const gamesSection = (`
       <p>Games played: ${gamesPlayed}</p>
       <p>X wins: ${winnerX}</p>
@@ -208,12 +208,10 @@ const gameIndexSuccess = function (data) {
       <br>
       `)
   gamesHtml += gamesSection
-*/
 
   store.games.forEach(function (game) {
     const gamesSection = (`
         <p>Game ID: ${game.id}</p>
-        <p>Game array: ${game.cells}</p>
         `)
     gamesHtml += gamesSection
   })
