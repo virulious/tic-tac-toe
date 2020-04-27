@@ -119,9 +119,10 @@ const signUpSuccess = function (data) {
 const signUpFailure = function (error) {
   $('.message').text('Sign up failed!')
   messageFail()
-  console.log(`signUpFailure ran. Error is:`, error)
+  // console.log(`signUpFailure ran. Error is:`, error)
 
   $('form').trigger('reset')
+  return error
 }
 
 // Sign in an existing account
@@ -141,9 +142,10 @@ const signInSuccess = function (data) {
 const signInFailure = function (error) {
   $('.message').text('Sign in failed!')
   messageFail()
-  console.log(`signInFailure ran. Error is:`, error)
+  // console.log(`signInFailure ran. Error is:`, error)
 
   $('form').trigger('reset')
+  return error
 }
 
 // Allows user to change their password
@@ -158,9 +160,10 @@ const changePasswordSuccess = function (data) {
 const changePasswordFailure = function (error) {
   $('.message').text('Change password failed!')
   messageFail()
-  console.log(`changePasswordFailure ran. Error is:`, error)
+  // console.log(`changePasswordFailure ran. Error is:`, error)
 
   $('form').trigger('reset')
+  return error
 }
 
 // Sign the user out and change user to null
@@ -196,7 +199,8 @@ const gameStartSuccess = function (data) {
 }
 
 const gameStartFailure = function (error) {
-  console.log(`Game creation failed. Error is:`, error)
+  // console.log(`Game creation failed. Error is:`, error)
+  return error
 }
 
 const gameIndexSuccess = function (data) {
@@ -232,7 +236,8 @@ const gameIndexSuccess = function (data) {
 }
 
 const gameIndexFailure = function (error) {
-  console.log('Game index failed. Error is: ', error)
+  // console.log('Game index failed. Error is: ', error)
+  return error
 }
 
 const gameIDSuccess = function (data) {
@@ -249,18 +254,19 @@ const gameIDSuccess = function (data) {
 }
 
 const gameIDFailure = function (error) {
-  console.log(`Something went wrong`, error)
+  // console.log(`Something went wrong`, error)
   $('.message').text('Something went wrong')
+  return error
 }
 
 const gameUpdateSuccess = function (data) {
-  $('.message').text('Update Successfull')
   messageSuccess()
 }
 
 const gameUpdateFailure = function (error) {
-  console.log('Game update failed. Error is: ', error)
+  // console.log('Game update failed. Error is: ', error)
   $('.message').text('Something went wrong')
+  return error
 }
 
 // Box click ui
@@ -274,8 +280,8 @@ const changeBox = function (data) {
   } else if (turn === 0) {
     if ($(event.target).hasClass('box')) {
       $(event.target).text('X')
-      $(event.target).removeClass()
-      $(event.target).addClass('col-4 x')
+      $(event.target).removeClass('box')
+      $(event.target).addClass('x')
       gameArr[event.target.id] = 'x'
       // console.log(store)
       // data.games.cells.value = 'x'
@@ -302,8 +308,8 @@ const changeBox = function (data) {
     }
   } else if (turn === 1) {
     $(event.target).text('O')
-    $(event.target).removeClass()
-    $(event.target).addClass('col-4 o')
+    $(event.target).removeClass('box')
+    $(event.target).addClass('o')
     gameArr[event.target.id] = 'o'
     // data.games.cells.value = 'x'
     // store.games = data.games
@@ -338,7 +344,8 @@ const keepBox = function (error) {
   } else if ($(event.target).hasClass('x') || $(event.target).hasClass('o')) {
     $('.message').text('Box already taken')
     messageFail()
-    console.log(error)
+    // console.log(error)
+    return error
   }
 }
 

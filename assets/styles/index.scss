@@ -19,6 +19,7 @@ body {
 
 main {
   margin-left: 205px;
+  // margin-top: 15%;
 }
 
 .success {
@@ -55,12 +56,24 @@ main {
   align-content: center;
   display: none;
   justify-content: center;
+  padding-left: 50px;
+}
+
+.row {
+  align-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .game-buttons {
   align-content: flex-end;
   display: flex;
   justify-content: center;
+}
+
+.user-buttons {
+  display: flex;
+  flex-flow: column;
 }
 
 .board {
@@ -76,8 +89,7 @@ main {
 
 .box {
   align-content: center;
-  background-color: $gameboard-fill;
-  border: 1px solid $gameboard-border;
+  // background-color: $gameboard-fill;
   display: flex;
   height: 80px;
   justify-content: center;
@@ -87,11 +99,26 @@ main {
   }
 }
 
+.line1 {
+  border-bottom: 2px solid $gameboard-border;
+}
+
+.line2 {
+  border-bottom: 2px solid $gameboard-border;
+}
+
+.col1 {
+  border-right: 2px solid $gameboard-border;
+}
+
+.col2 {
+  border-right: 2px solid $gameboard-border;
+}
+
 .x {
   align-content: center;
   align-items: center;
-  background-color: $gameboard-fill;
-  border: 1px solid $gameboard-border;
+  // background-color: $gameboard-fill;
   color: $color-x;
   display: flex;
   height: 80px;
@@ -106,8 +133,7 @@ main {
 .o {
   align-content: center;
   align-items: center;
-  background-color: $gameboard-fill;
-  border: 1px solid $gameboard-border;
+  // background-color: $gameboard-fill;
   color: $color-o;
   display: flex;
   height: 80px;
@@ -127,4 +153,5 @@ main {
   justify-content: flex-start;
   position: fixed;
   width: 205px;
+  // width: 100%;
 }

@@ -13,31 +13,35 @@
     </head>
     <body>
       <section class="side-bar">
-        <div class="unauthenticated">
-          <p class="message"></p>
-          <form id="sign-up">
-            <input required type="text" placeholder="User Email" name="credentials[email]">
-            <input required type="password" placeholder="User Password" name="credentials[password]">
-            <input required type="password" placeholder="User Password" name="credentials[password_confirmation]">
-            <button type="submit">Sign Up</button>
-          </form>
-          <form id="sign-in">
-            <input required type="text" placeholder="User Email" name="credentials[email]">
-            <input required type="password" placeholder="User Password" name="credentials[password]">
-            <button type="submit">Sign In</button>
-          </form>
-        </div>
+        <section class="user-buttons">
+          <div class="unauthenticated">
+            <p class="message"></p>
+            <form id="sign-up">
+              <input required type="text" placeholder="User Email" name="credentials[email]">
+              <input required type="password" placeholder="User Password" name="credentials[password]">
+              <input required type="password" placeholder="User Password" name="credentials[password_confirmation]">
+              <button type="submit">Sign Up</button>
+            </form>
+            <form id="sign-in">
+              <input required type="text" placeholder="User Email" name="credentials[email]">
+              <input required type="password" placeholder="User Password" name="credentials[password]">
+              <button type="submit">Sign In</button>
+            </form>
+          </div>
+      </section>
         <div class="authenticated">
           <h1>A Tic-Tac-Toe game</h1>
-          <form id="sign-out">
-            <button type="submit">Sign Out</button>
-          </form>
-          <form id="change-password">
-            <input required type="password" name="passwords[old]" placeholder="Old Password">
-            <input required type="password" name="passwords[new]" placeholder="New Password">
-            <button type="submit">Change Password</button>
-          </form>
-          <div class="message"></div>
+          <section class="user-buttons">
+            <form id="sign-out">
+              <button type="submit">Sign Out</button>
+            </form>
+            <form id="change-password">
+              <input required type="password" name="passwords[old]" placeholder="Old Password">
+              <input required type="password" name="passwords[new]" placeholder="New Password">
+              <button type="submit">Change Password</button>
+            </form>
+            <div class="message"></div>
+          </section>
         </div>
         </section>
         <main>
@@ -56,14 +60,14 @@
             </section>
             <div class="container">
               <div class="row board">
-                <div class="col-4 box" id="0"></div>
-                <div class="col-4 box" id="1"></div>
-                <div class="col-4 box" id="2"></div>
-                <div class="col-4 box" id="3"></div>
-                <div class="col-4 box" id="4"></div>
-                <div class="col-4 box" id="5"></div>
-                <div class="col-4 box" id="6"></div>
-                <div class="col-4 box" id="7"></div>
+                <div class="col-4 box line1 col1" id="0"></div>
+                <div class="col-4 box line1 col2" id="1"></div>
+                <div class="col-4 box line1" id="2"></div>
+                <div class="col-4 box line2 col1" id="3"></div>
+                <div class="col-4 box line2 col2" id="4"></div>
+                <div class="col-4 box line2" id="5"></div>
+                <div class="col-4 box col1" id="6"></div>
+                <div class="col-4 box col2" id="7"></div>
                 <div class="col-4 box" id="8"></div>
               </div>
             </div>
