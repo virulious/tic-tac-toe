@@ -171,6 +171,7 @@ const signOutSuccess = function (data) {
   refresh()
   $('.container').hide()
   $('#games-display').hide()
+  $('#games-data').hide()
 
   $('form').trigger('reset')
 
