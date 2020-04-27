@@ -174,6 +174,7 @@ const signOutSuccess = function (data) {
   $('.authenticated').hide()
   $('.unauthenticated').show()
 
+  refresh()
   store.user = null
 }
 
