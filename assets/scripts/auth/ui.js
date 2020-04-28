@@ -210,9 +210,9 @@ const gameIndexSuccess = function (data) {
   let gamesHtml = ''
   let gamesHtmldata = ''
   let totalGames = 0
-  store.games = data.games
+  // store.games = data.games
 
-  store.games.forEach(function (game) {
+  data.games.forEach(function (game) {
     const gamesSection = (`
       <p>Game ID: ${game.id}</p>
       `)
