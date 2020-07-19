@@ -65,7 +65,7 @@ const gameIndex = function (data) {
 const gameID = function (data) {
   // console.log(data)
   return $.ajax({
-    url: config.apiUrl + '/games/' + data.games.id,
+    url: config.apiUrl + '/games/' + data.games._id,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -75,7 +75,7 @@ const gameID = function (data) {
 
 const gameUpdate = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.games.id,
+    url: config.apiUrl + '/games/' + store.games._id,
     method: 'PATCH',
     data,
     headers: {
