@@ -214,7 +214,7 @@ const gameIndexSuccess = function (data) {
 
   data.games.forEach(function (game) {
     const gamesSection = (`
-      <p>Game ID: ${game._id}</p>
+      <p>Game ID: ${game.id}</p>
       `)
     totalGames += 1
     gamesHtml += gamesSection
@@ -246,7 +246,7 @@ const gameIDSuccess = function (data) {
   // console.log(data)
   // console.log(store)
   const gamesIDSection = (`
-    <p>Game ID: ${data.game._id}</p>
+    <p>Game ID: ${data.game.id}</p>
     <p>Game Array: ${data.game.cells}</p>
     `)
   idGames += gamesIDSection
@@ -282,7 +282,7 @@ const changeBox = function (data) {
       $(event.target).text('X')
       $(event.target).removeClass('box')
       $(event.target).addClass('x')
-      gameArr[event.target._id] = 'x'
+      gameArr[event.target.id] = 'x'
       // console.log(store)
       // data.games.cells.value = 'x'
       // store.games = data.games
@@ -294,7 +294,7 @@ const changeBox = function (data) {
       const data = {
         game: {
           cell: {
-            index: event.target._id,
+            index: event.target.id,
             value: 'x'
           },
           over: false
@@ -310,7 +310,7 @@ const changeBox = function (data) {
     $(event.target).text('O')
     $(event.target).removeClass('box')
     $(event.target).addClass('o')
-    gameArr[event.target._id] = 'o'
+    gameArr[event.target.id] = 'o'
     // data.games.cells.value = 'x'
     // store.games = data.games
     // console.log(gameArr)
@@ -322,7 +322,7 @@ const changeBox = function (data) {
     const data = {
       game: {
         cell: {
-          index: event.target._id,
+          index: event.target.id,
           value: 'o'
         },
         over: false
