@@ -310,7 +310,7 @@ const changeBox = function (data) {
     $(event.target).text('O')
     $(event.target).removeClass('box')
     $(event.target).addClass('o')
-    gameArr[event.target.id] = 'o'
+    gameArr[event.target._id] = 'o'
     // data.games.cells.value = 'x'
     // store.games = data.games
     // console.log(gameArr)
@@ -322,7 +322,7 @@ const changeBox = function (data) {
     const data = {
       game: {
         cell: {
-          index: event.target.id,
+          index: event.target._id,
           value: 'o'
         },
         over: false
